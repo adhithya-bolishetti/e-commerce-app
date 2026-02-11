@@ -5,7 +5,7 @@ import com.stchool.ecommerce.repository.CustomerRepository;
 
 public class CustomerService {
     public Customer handleSignup(Customer customer) {
-        System.out.println("Handling Customer data in service layer of " + customer);
+        System.out.println("Handling Signup data of " + customer + " in service layer");
         CustomerRepository customerRepository = new CustomerRepository();
         return customerRepository.addNewCustomer(customer);
     }
