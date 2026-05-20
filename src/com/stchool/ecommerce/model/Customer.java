@@ -1,38 +1,30 @@
 package com.stchool.ecommerce.model;
 
 public class Customer {
-    private String id;
-    private String firstName;
-    private String lastName;
+    private int id;
+    private String name;
     private String email;
-    private String contactNo;
     private String password;
+    private String contactNo;
+
 
     public Customer() {
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getName() {
+        return name;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getEmail() {
@@ -43,14 +35,6 @@ public class Customer {
         this.email = email;
     }
 
-    public String getContactNo() {
-        return contactNo;
-    }
-
-    public void setContactNo(String contactNo) {
-        this.contactNo = contactNo;
-    }
-
     public String getPassword() {
         return password;
     }
@@ -59,12 +43,22 @@ public class Customer {
         this.password = password;
     }
 
+    public String getContactNo() {
+        return contactNo;
+    }
+
+    public void setContactNo(String contactNo) {
+        this.contactNo = contactNo;
+    }
+
     @Override
     public String toString() {
         return "Customer{" +
                 "id='" + id + '\'' +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
+                ", name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", contactNo='" + contactNo + '\'' +
                 '}';
     }
 }
