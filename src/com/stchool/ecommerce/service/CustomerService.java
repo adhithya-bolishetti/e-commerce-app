@@ -1,19 +1,11 @@
 package com.stchool.ecommerce.service;
 
+import com.stchool.ecommerce.exception.CustomerExistsException;
+import com.stchool.ecommerce.exception.CustomerNotFoundException;
+import com.stchool.ecommerce.exception.InvalidCredentialsException;
 import com.stchool.ecommerce.model.Customer;
-import com.stchool.ecommerce.repository.CustomerRepository;
 
-public class CustomerService {
-    public Customer handleSignup(Customer customer) {
-        System.out.println("Handling Signup data of " + customer + " in service layer");
-        CustomerRepository customerRepository = new CustomerRepository();
-        return customerRepository.addNewCustomer(customer);
-    }
-    public void displayCustomerDetails(Customer customer) {
-        System.out.println("Id : " + customer.getId());
-        System.out.println("FirstName : " + customer.getFirstName());
-        System.out.println("LastName : " + customer.getLastName());
-        System.out.println("E-Mail : " + customer.getEmail());
-        System.out.println("Contact Number : " + customer.getContactNo());
-    }
+public interface CustomerService {
+    Customer save(Customer customer) throws CustomerExistsException;
+    Customer login(String email, String password) throws CustomerNotFoundException, InvalidCredentialsException;
 }
