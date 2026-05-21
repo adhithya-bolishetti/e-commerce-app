@@ -7,7 +7,9 @@ public class InputUtil {
 
     public static int getIntInput(String message) {
         System.out.println(message);
-        return scanner.nextInt();
+        int n = scanner.nextInt();
+        scanner.nextLine();
+        return n;
     }
 
     public static String getStringInput(String message) {

@@ -18,7 +18,6 @@ public class CustomerUI {
 
     public Customer registerCustomer() throws CustomerExistsException {
         System.out.println("Customer Registration Form");
-        System.out.print("Enter Id: ");
         int id = InputUtil.getIntInput("Enter Id: ");
         String name = InputUtil.getStringInput("Enter Name: ");
         String email = InputUtil.getStringInput("Enter E-mail: ");

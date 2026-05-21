@@ -19,7 +19,7 @@ public class Main {
 
         char continueInput = 'Y';
 
-        while (continueInput == 'Y') {
+        while (continueInput == 'Y' || continueInput == 'y') {
             System.out.println("E-Commerce Application");
             System.out.println("1. SignUp");
             System.out.println("2. Login");
