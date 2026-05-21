@@ -7,12 +7,12 @@ import com.stchool.ecommerce.exception.InvalidCredentialsException;
 import com.stchool.ecommerce.factory.AppFactory;
 import com.stchool.ecommerce.model.Customer;
 import com.stchool.ecommerce.ui.CustomerUI;
+import com.stchool.ecommerce.util.InputUtil;
 
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
 
         CustomerController customerController = AppFactory.getCustomerControllerInstance();
         CustomerUI customerUI = new CustomerUI(customerController);
@@ -23,8 +23,7 @@ public class Main {
             System.out.println("E-Commerce Application");
             System.out.println("1. SignUp");
             System.out.println("2. Login");
-            System.out.print("Enter you choice: ");
-            int choice = scanner.nextInt();
+            int choice = InputUtil.getIntInput("Enter you choice: ");
 
             switch (choice) {
                 case 1:
@@ -53,10 +52,7 @@ public class Main {
                 default:
                     System.out.println("Invalid input");
             }
-            System.out.print("Do you want to continue (Y/N): ");
-            continueInput = scanner.next().charAt(0);
+            continueInput = InputUtil.getCharInput("Do you want to continue (Y/N): ");
         }
-
-        scanner.close();
     }
 }
