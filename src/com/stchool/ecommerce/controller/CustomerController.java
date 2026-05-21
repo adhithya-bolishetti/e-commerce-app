@@ -1,12 +1,23 @@
 package com.stchool.ecommerce.controller;
 
+import com.stchool.ecommerce.exception.CustomerExistsException;
+import com.stchool.ecommerce.exception.InvalidCredentialsException;
 import com.stchool.ecommerce.model.Customer;
+import com.stchool.ecommerce.service.CustomerService;
+import com.stchool.ecommerce.service.CustomerServiceImpl;
 
 public class CustomerController {
-    public Customer handleSignup(Customer customer) {
-        System.out.println("Handling Signup data of " + customer.getName() + " in Controller layer");
+    private final CustomerService customerService;
 
-        CustomerService customerService = new CustomerService();
-        return customerService.handleSignup(customer);
+    public CustomerController(CustomerService customerService) {
+        this.customerService = customerService;
+    }
+
+    public Customer save(Customer customer) throws CustomerExistsException {
+        return customerService.save(customer);
+    }
+
+    public Customer login(String email, String password) throws CustomerExistsException, InvalidCredentialsException {
+        return customerService.login(email, password);
     }
 }

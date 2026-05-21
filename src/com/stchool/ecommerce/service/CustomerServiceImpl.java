@@ -8,8 +8,11 @@ import com.stchool.ecommerce.repository.CustomerRepository;
 import com.stchool.ecommerce.util.CsvReader;
 
 public class CustomerServiceImpl implements CustomerService {
-    CsvReader csvReader = new CsvReader();
-    CustomerRepository customerRepository = new CustomerRepository(csvReader);
+    private final CustomerRepository customerRepository;
+
+    public CustomerServiceImpl(CustomerRepository customerRepository) {
+        this.customerRepository = customerRepository;
+    }
 
     @Override
     public Customer save(Customer customer) throws CustomerExistsException {
